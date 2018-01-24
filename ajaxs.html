@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    script</title>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+    </script>
+  <link rel="https://api.darksky.net/forecast/6c98338769c3a4a9a3e1de90ef3b03ec/37.8267,-122.4233" >
+  <body>
+<button >Its working</button>
+
+
+<div id="ajax_result">
+   <p>Weather for the next coming of days:</p>
+  <p id="display"></p>
+  <br>
+  <p>temp</p>
+  <p id="#temp"></p>
+
+</div>
+  </body>
+
+  <script type="text/javascript">
+
+
+//$.git(  https://api.darksky.net/forecast/6c98338769c3a4a9a3e1de90ef3b03ec/30.5595,22.9375)
+//loadJson(https://api.darksky.net/forecast/6c98338769c3a4a9a3e1de90ef3b03ec/30.5595,22.9375)
+let weather;
+let tempur;
+
+$(document).ready(function(){
+  $('button').click(function(){
+    $.ajax({
+     url:"https://api.darksky.net/forecast/6c98338769c3a4a9a3e1de90ef3b03ec/37.8267,-122.4233",
+      dataType:'Jsonp',
+      success:function(result){
+
+   if (result){
+     weather=result;
+        console.log(weather.currently.summary);
+      //  $('#ajax_result').html(result)
+   $('#display').html(weather.daily.summary);
+
+   $('#temp').html(weather.daily.data.summary
+   )
+ }
+              
+
+
+          }
+    });
+  });
+});
+
+
+  </script>
+</html>
